@@ -79,27 +79,13 @@ def find_list_values(all_entered_values):
 
 def sum_population_for_year(all_entered_values, year_to_sum):
     # Establish a variable
-    loop = -1
-
-    # Identify the current total
     total_population = 0
 
     for row in all_entered_values:
-
-        # Change the loop
-        loop += 1
-
-        for element in row:
-
-            # If the elements is the right year, identify the placement of the population
-            if element == year_to_sum:
-                ##########################################
-                # Add the population to the total population
-                total_population += element[loop][2]
-            else:
-                total_population = total_population
-                ##########################################
-                # I am not quite sure how to do this right
+        # If the year in the row matches the year to sum
+        if row[0] == year_to_sum:
+            # Add the population (third element in the row)
+            total_population += row[2]
                 
     # Return the total population
     return total_population

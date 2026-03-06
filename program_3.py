@@ -27,7 +27,7 @@ def main():
     total_population = sum_population_for_year(all_entered_values, year_to_sum)
 
     # Print the total population
-    print(f"The total population for {year_to_sum} is {total_population}")
+    print(f"The total population for {year_to_sum} is {total_population:,}")
 
 
 
@@ -78,41 +78,19 @@ def find_list_values(all_entered_values):
 
 
 def sum_population_for_year(all_entered_values, year_to_sum):
-    # Establish a variable
-    loop = -1
 
-    # Identify the current total
     total_population = 0
 
     for row in all_entered_values:
 
-        # Change the loop
-        loop += 1
+        # Determine if the row contains the year selected
+        if row[0] == year_to_sum:
 
-        for element in row:
+            # If it does, add the population element to the total
+            total_population += row[2]
 
-            # If the elements is the right year, identify the placement of the population
-            if element == year_to_sum:
-                ##########################################
-                # Add the population to the total population
-                total_population += element[loop][2]
-            else:
-                total_population = total_population
-                ##########################################
-                # I am not quite sure how to do this right
-                
     # Return the total population
     return total_population
-
-
-
-
-
-# Loop through and sum the populations for the appropriate year.
-# e.g. for the list on line 7 the total would be 8,860,637 if the user entered 2010 for the year to sum,
-# or 3,421,988 if they entered 2011 for the year to sum.
-
-# print the totaled population
 
 
 # Call the main function.
